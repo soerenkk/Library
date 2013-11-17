@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteRule ^søg/([a-åA-Å0-9]+)/?$ w/soeg.php?q=$1
+
+RewriteRule ^produkter/([0-9]+)/$ produkt.php?produktid=$1
+
+# Er /page/ sat vil den automatisk vælge php filer #
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^page/(.*?)/?$ $1.php [L]
+#RewriteRule ^page/([.*?])/$ \$1.php [L]
+
+RewriteRule ^phpinfo/$ phpinfo.php
+#RewriteRule ^html\.html$ html.php
